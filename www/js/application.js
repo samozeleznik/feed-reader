@@ -1,4 +1,5 @@
 var Application = {
+
    initApplication: function () {
       $(document)
          .on('pageinit', '#add-feed-page', function () {
@@ -163,5 +164,10 @@ var Application = {
          event.preventDefault();
          window.open($(this).attr('href'), '_blank');
       });
-   }
+   },
+   updateIcons: function () {
+   var $buttons = $('a[data-icon], button[data-icon]');
+   var isMobileWidth = ($(window).width() <= 480);
+   isMobileWidth ? $buttons.attr('data-iconpos', 'notext') : $buttons.removeAttr('data-iconpos');
+}
 };
